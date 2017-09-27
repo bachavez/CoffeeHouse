@@ -1,17 +1,40 @@
 const router = require('express').Router();
 const db = require('../models');
 
+//api/sales
 router.get('/', function(request, response){
   //return all sales in the database
-  var promise = db.Sale.findAll()
-
-  promise.then(function(sales){
+  db
+    .Sale
+    .findAll({
+      include: [{
+        model:db.Customer,
+        as: 'customer'
+      }, {
+        model: db.SaleDetail,
+        as: 'saledetails'
+      }]
+    })
+  .then(function(sales){
     response.json(sales);
   });
 });
 
 router.get('/:id', function(request,response){
-  db.Sale.findById(request.params.id).then(function(sale){
+  db.Sale.findById(request.params.id,{
+    include: [{
+      model: db.Customer,
+      as: 'customer'
+    }, {
+      model: db.SaleDetail,
+      as: 'saledetails',
+      include: [{
+        model: db.Product,
+        as: 'product'
+      }]
+    }]
+  })
+  .then(function(sale){
     if (sale === null){
       response.sendStatus(404);
     } else{
@@ -57,3 +80,13 @@ router.delete('/:id', function(request,response){
 
 
 module.exports = router;
+
+// Long form of Promise
+// router.get('/', function(request, response){
+//   //return all sales in the database
+//   var promise = db.Sale.findAll()
+
+//   promise.then(function(sales){
+//     response.json(sales);
+//   });
+// });

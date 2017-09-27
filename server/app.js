@@ -11,6 +11,7 @@ const saledetailsRoute = require('./routes/saledetails.route');
 const app = express();
 
 app.use(express.static(`${__dirname}/../dist`));
+//app.use(express.static(__dirname + '/../client'));
 app.use(bodyParser.json());
 app.use('/api/customers', customersRoute);
 app.use('/api/products', productsRoute);
@@ -20,6 +21,7 @@ app.use('/api/saledetails', saledetailsRoute);
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/../dist/index.html`);
+  //res.sendFile(__dirname + '/../client/index.html');
 });
 
 module.exports = app;

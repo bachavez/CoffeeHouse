@@ -1,0 +1,28 @@
+<table class ='table'>
+    <thead>
+        <tr>
+            <th>VIP</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Telephone</th>
+            <th width="14%">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="customer in customersGridCtrl.customers">
+            <td><i ng-class="{'fa fa-trash': customers.isVip =='true'}"></i>{{customer.isVip}}</td>
+            <td>{{customer.firstName}} {{customer.lastName}}</td>
+            <td>{{customer.email || 'N/A'}}</td>
+            <td>{{customer.telephone || 'N/A'}}</td>
+            <td>
+                <button class='btn btn-primary' ui-sref='customer-detail({ id: customer.id})'>
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button class='btn btn-primary' ng-click="customersGridCtrl.remove({id: customer.id})">
+                    <i class='fa fa-trash'></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    
+</table>

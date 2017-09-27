@@ -1,0 +1,22 @@
+ <table class="table">
+     <thead>
+         <tr>
+             <th>Sale Date</th>
+             <th>customer Name</th>
+             <th>Total Sale Price</th>
+             <th>Number of Drinks</th>
+             <th>Actions</th>
+         </tr>
+     </thead>
+    <tbody>
+        <tr ng-repeat ="sale in salesGridCtrl.sales">
+            <td>{{sale.date | date}}</td>
+            <td>{{sale.customer.firstName}} {{sale.customer.lastName}}</td>
+            <td></td>
+            <td></td>
+            <td><button class="btn bnt-primary"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            </td>
+        </tr>
+    </tbody>
+ </table>

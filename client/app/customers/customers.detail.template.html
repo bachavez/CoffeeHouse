@@ -1,0 +1,70 @@
+
+<div class="panel panel-primary">
+      <div class="panel-heading">
+            <h3 class="panel-title">Edit Customer</h3>
+      </div>
+      <div class="panel-body">
+          <div class="row">
+              <div class="col-sm-2">
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">VIP</span>
+                    <input type="checkbox" class="form-control" value = '1' placeholder="Username" aria-describedby="basic-addon1" ng-model='customersDetailCtrl.customer.isVip'>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form group">
+                    <label for="">First Name</label>
+                    <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.firstName'>
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.lastName'>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                <label for="">Address 2</label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.address1'>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-8">
+                <label for="">Address 2</label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.address2'>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-4">
+                <label for="">City </label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.city'>
+              </div>
+            <div class="col-sm-3">
+                <label for="">State </label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.state'>
+              </div>
+            <div class="col-sm-3">
+                <label for="">Zip </label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.zip'>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-sm-6">
+                <label for="">Telephone </label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.telephone'>
+              </div>
+            <div class="col-sm-6">
+                <label for="">Email </label>
+                <input type="text" class='form-control' ng-model='customersDetailCtrl.customer.email'>
+              </div>
+          </div>      
+      </div>
+      <div class="panel-footer clearfix">
+          <button class="btn btn-success pull-right" ng-click="customersDetailCtrl.save(customersDetailCtrl.customer)">
+              <i class="fa fa-save"></i> Save Customer
+          </button>
+      </div>
+</div>
+

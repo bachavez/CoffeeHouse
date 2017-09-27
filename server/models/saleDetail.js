@@ -17,9 +17,10 @@ module.exports = function (sequelize, DataTypes) {
         discount: DataTypes.DECIMAL(10,2)
     });
 
-//     SaleDetail.associate = function (models) {
-
-//     };
+    SaleDetail.associate = function (models) {
+        models.SaleDetail.belongsTo(models.Sale, {as: 'sale', foreignKey: 'saleId'});
+        models.SaleDetail.belongsTo(models.Product, {as: 'product', foreignKey: 'productId'});
+    };
 
     return SaleDetail;
 };

@@ -12,11 +12,13 @@ module.exports = function (sequelize, DataTypes) {
 
     Sale.associate = function (models) {
         models.Sale.hasMany(models.SaleDetail, {
-            as: 'SaleDetail',
+            as: 'saledetails',
             foreignKey: 'saleId'
         });
-
+        models.Sale.belongsTo(models.Customer, {
+            as: 'customer',
+            foreignKey: 'customerId'
+        });
     };
-
     return Sale;
 };
